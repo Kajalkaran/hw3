@@ -1,4 +1,11 @@
 class EntriesController < ApplicationController
+  def index
+    @entries= Entry.all
+  end
+  
+  
+  
+  
   def show
     @entry= Entry.find_by({"id"=> params["id"]})
     @place = Place.find_by({"id" => @entry["place_id"]})
@@ -13,7 +20,7 @@ class EntriesController < ApplicationController
 
     @entry["title"] = params["title"]
     @entry["description"] = params["description"]
-    @entry["posted_on"] = params["date"]
+    @entry["occurred_on"] = params["date"]
 
     @entry["place_id"] = params["place_id"]
 
