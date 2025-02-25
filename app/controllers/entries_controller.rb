@@ -3,9 +3,6 @@ class EntriesController < ApplicationController
     @entries= Entry.all
   end
   
-  
-  
-  
   def show
     @entry= Entry.find_by({"id"=> params["id"]})
     @place = Place.find_by({"id" => @entry["place_id"]})
